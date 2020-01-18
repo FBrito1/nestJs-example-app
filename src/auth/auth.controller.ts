@@ -12,4 +12,6 @@ export class AuthController {
   ): Promise<void> {
     return this.authService.singUp(authCredentialsDto);
   }
+
+  singIn() {}
 }
