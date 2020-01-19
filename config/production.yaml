@@ -1,2 +1,5 @@
+server:
+  origin: "http://nestjs-task-front-brito.s3-website-us-east-1.amazonaws.com"
+
 db:
   synchronize: false
