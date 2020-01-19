@@ -12,7 +12,7 @@ export class UserRepository extends Repository<User> {
   async singUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
     const { username, password } = authCredentialsDto;
 
-    const user = new User();
+    const user = this.create();
 
     user.username = username;
     user.salt = await bcrypt.genSalt();
@@ -35,7 +35,7 @@ export class UserRepository extends Repository<User> {
     const { username, password } = authCredentialsDto;
     const user = await this.findOne({ username });
 
-    if (user && (await user.validatePasssoword(password))) {
+    if (user && (await user.validatePassword(password))) {
       return user.username;
     } else {
       return null;
